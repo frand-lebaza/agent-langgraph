@@ -104,11 +104,15 @@ app = graph.compile()
 
 
 # 5. Ejecución de prueba
-if __name__ == "__main__":
-    ejemplos = ["ayuda", "reservar", "cancelar", "algo raro"]
+# if __name__ == "__main__":
+#     ejemplos = ["ayuda", "reservar", "cancelar", "algo raro"]
 
-    for entrada in ejemplos:
-        print(f"\n--- Simulación con user_input = '{entrada}' ---")
-        state = ConversationState(user_input=entrada)
-        for step in app.stream(state):
-            print(step)
+#     for entrada in ejemplos:
+#         print(f"\n--- Simulación con user_input = '{entrada}' ---")
+#         state = ConversationState(user_input=entrada)
+#         for step in app.stream(state):
+#             print(step)
+if __name__ == "__main__":
+    state = ConversationState(user_input=input("Tú: "))
+    for step in app.stream(state):
+        print(step)
